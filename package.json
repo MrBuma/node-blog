@@ -1,0 +1,32 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "bog, buma, f8,express",
+  "main": "index.js",
+  "scripts": {
+    "start":"nodemon --inspect ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrBuma/node-blog.git"
+  },
+  "keywords": [
+    "blog",
+    "buma",
+    "learn",
+    "nodejs"
+  ],
+  "author": "buma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrBuma/node-blog/issues"
+  },
+  "homepage": "https://github.com/MrBuma/node-blog#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
