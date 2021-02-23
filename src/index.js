@@ -7,20 +7,18 @@ const port = 4000;
 // express static
 app.use(express.static(path.join(__dirname, 'public')));
 
+const route = require('./routes');
+
+// Route init
+route(app);
+
 // http logger
 app.use(morgan('combined'));
 // template engines
 app.engine('hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resource/views'));
-app.get('/', (req, res) => {
-  //res.send('Hello World!')
-  res.render('home');
-})
 
-app.get('/news', (req, res) => {
-  res.render('news');
-})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
