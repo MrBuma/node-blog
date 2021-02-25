@@ -21,8 +21,8 @@ app.use(morgan('combined'));
 // template engines
 app.engine('hbs', exphbs({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resource/views'));
+app.set('views', path.join(__dirname, 'resource', 'views'));
 
 app.listen(port, () => {
-  console.log(`at http://localhost:${port}`);
+  console.log(`App at http://localhost:${port}`);
 });
