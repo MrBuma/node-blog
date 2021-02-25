@@ -4,7 +4,7 @@ class NewsController {
         res.render('news');
     }
 
-    show(req, res){
+         show(req, res){
         res.send('News detail');
     }
 }
