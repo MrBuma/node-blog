@@ -1,5 +1,6 @@
 const { render } = require('node-sass');
 const Course = require('./models/Course');
+const { multipleMongooseToObject } = require('../../util/mongoose');
 
 class SiteController {
 
@@ -15,8 +16,9 @@ class SiteController {
         //   });
         Course.find({})
         .then(courses => {
-            courses = courses.map(course => course.toObject());
-            res.render('home', { courses });
+            res.render('home', { 
+                courses: multipleMongooseToObject(courses)
+            });
         })
         .catch(next);
         //error => next(error)
