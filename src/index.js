@@ -1,12 +1,20 @@
 const express = require('express');
 const path = require('path');
-var morgan = require('morgan');
+const morgan = require('morgan');
+//const bodyParser = require('body-parser')
 const app = express();
 const exphbs = require('express-handlebars');
-const port = 4000;
+//app.use(bodyParser.json());
+const port = 3000;
 // express static
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  express.urlencoded({
+    extended: true
+  })
+);
 
+app.use(express.json());
 const route = require('./routes');
 // khoi tao DB
 //const db = require('./config/db');
