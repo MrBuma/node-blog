@@ -19,7 +19,7 @@ class CourseController {
 
     store(req, res, next){
       //  res.json(req.body);
-      req.body.image = `img.youtube.com/vi/${req.body.videoId}/0.jpg`;
+      req.body.image = `http://img.youtube.com/vi/${req.body.videoId}/0.jpg`;
        const course = new Course(req.body);
        course.save()
        .then(() => res.redirect('/'))
