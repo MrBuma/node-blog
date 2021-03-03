@@ -28,7 +28,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
-    "mongoose": "^5.11.18"
+    "mongoose": "^5.11.18",
+    "mongoose-slug-generator": "^1.0.4"
   },
   "lint-staged": {
     "src/**/*.{js,json,hbs": "prettier --single-quote --trailing-comma all --write"
