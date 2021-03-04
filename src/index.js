@@ -8,6 +8,7 @@ const exphbs = require('express-handlebars');
 const port = 3000;
 // express static
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(
   express.urlencoded({
     extended: true
@@ -27,7 +28,12 @@ route(app);
 // http logger
 app.use(morgan('combined'));
 // template engines
-app.engine('hbs', exphbs({ extname: '.hbs' }));
+app.engine('hbs', exphbs({ 
+        extname: '.hbs', 
+        helpers: {
+          sum: function (a, b) { return a + b; }
+      }
+    }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resource', 'views'));
 

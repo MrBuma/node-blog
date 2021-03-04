@@ -3,6 +3,8 @@ const Course = require('./models/Course');
 const { mongooseToObject } = require('../../util/mongoose');
 
 class CourseController {
+    
+    // [GET] /courses/show
     show(req, res, next){
         Course.findOne({ slug: req.params.slug })
         .then(course => {
@@ -17,6 +19,7 @@ class CourseController {
        res.render("courses/create");
          }
 
+    //     //[POST] /courses/store
     store(req, res, next){
       //  res.json(req.body);
       req.body.image = `img.youtube.com/vi/${req.body.videoId}/0.jpg`;
