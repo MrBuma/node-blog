@@ -4,11 +4,16 @@ const morgan = require('morgan');
 //const bodyParser = require('body-parser')
 const app = express();
 const exphbs = require('express-handlebars');
-//app.use(bodyParser.json());
+// override methods
+const methodOverride = require('method-override');
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'));
+
 const port = 3000;
 // express static
 app.use(express.static(path.join(__dirname, 'public')));
-
+//app.use(bodyParser.json());
 app.use(
   express.urlencoded({
     extended: true
