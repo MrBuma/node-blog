@@ -6,12 +6,15 @@ class MeController {
     
     // [GET] me/stored/courses/
     storedCourses(req, res, next){
-        Course.find({})
-       .then(courses => {
-            //res.json(course);
-            res.render('me/stored-courses', { courses: multipleMongooseToObject(courses) });
+        Promise.all([Course.find({}), Course.countDocumentsDeleted({})])
+        .then(([courses, deleteCounts]) => {
+            res.render('me/stored-courses', { 
+                deleteCounts,
+                courses: multipleMongooseToObject(courses) });
         })
+
         .catch(next)
+
     }
     
     // [GET] me/strash/courses/
