@@ -19,7 +19,7 @@ class CourseController {
        res.render("courses/create");
          }
 
-    //     //[POST] /courses/store
+    //[POST] /courses/store
     store(req, res, next){
       //  res.json(req.body);
       req.body.image = `http://img.youtube.com/vi/${req.body.videoId}/0.jpg`;
@@ -30,7 +30,7 @@ class CourseController {
         { }    
         )
      }
-
+   
       //[GET] /courses/:id/edit
       edit(req, res, next){
             Course.findById(req.params.id)
@@ -48,10 +48,21 @@ class CourseController {
     
        //[DELETE] /courses/:id
        destroy(req, res, next){
-           Course.deleteOne({_id: req.params.id})
+           Course.delete({_id: req.params.id})
            .then(() => res.redirect('back'))
            .catch(next)
-                        
+       }
+         //[DELETE] /courses/:id/force 
+        forcedestroy(req, res, next){
+            Course.deleteOne({_id: req.params.id})
+           .then(() => res.redirect('back'))
+           .catch(next)
+       }
+       //[PATCH] /courses/:id/restore
+       restore(req, res, next){
+        Course.restore({_id: req.params.id})
+        .then(() => res.redirect('back'))
+        .catch(next)
        }
 }
 
